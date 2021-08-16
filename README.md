@@ -6,7 +6,7 @@
 
 * Table Of Contents
     - [Analysis: Pro's and Con's](#analysis)
-    - [Working demo with minifab and privatemarbles chaincode](#working-demo)
+    - [Working demo with minifab and car ownership chaincode](#working-demo)
     - [Resources](#resources)
 
 ### Analysis: 
@@ -31,7 +31,7 @@
 
 ### Working Demo: 
 
-#### Splunk transaction integration with Hyperledger Fabric working example using minifab and private marbles chaincode
+#### Splunk transaction integration with Hyperledger Fabric working example using minifab and car ownership chaincode
 
 * Note: Please use legacy osxfs file sharing mechanism for MAC. [link](https://github.com/hyperledger-labs/minifabric/issues/141)
 * Example using HF 2.2
