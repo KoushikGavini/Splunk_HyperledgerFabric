@@ -7,3 +7,4 @@ set -o allexport
 source vars/run/peer1.org0.example.com.env
 set +o allexport
 docker-compose up -d
+sudo chmod u+x privatemarbles.sh
