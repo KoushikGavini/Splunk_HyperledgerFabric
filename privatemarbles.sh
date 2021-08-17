@@ -1,12 +1,11 @@
 #!/bin/bash
 
 # copies chaincode configuration to vars folder and chaincode sourcecode
-sudo cp -r car_chaincode vars/chaincode
 sudo cp privatemarbles_collection_config.json vars
 
 # installs chaincode
 echo "installing chaincode"
-./minifab install -n car_chaincode -r true
+./minifab install -n privatemarbles -r true
 
 # approves, commits and initalizes the chaincode
 echo "Approving, commiting and initializing chaincode"
