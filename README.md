@@ -2,12 +2,12 @@
 
 ## Objective
 
-* The purpose of this repo is to illustrate splunk transaction logging integration with Hyperledger Fabric. The README will also analysis the pro's and cons of the splunk fabric-logger.
+* The purpose of this repo is to illustrate splunk transaction logging integration with Hyperledger Fabric. This project will take a usecase of **private data transactions** as they are one of the key enterprise blockchain transaction methodologies and analyze the usefullness of splunk/fabric-logger. The README will also analysis the pro's and cons of the splunk fabric-logger.
 
 * Table Of Contents
     - [Analysis: Pro's and Con's](#analysis)
     - [Working demo with minifab and car ownership chaincode](#working-demo)
-        - [Explanation of demo](#explanation)
+        - [Explanation of demo and analysis/takeaways of demo](#explanation)
         - [Instructions](#instructions)
     - [Resources](#resources)
 
@@ -26,7 +26,7 @@
 
         ![Splunk_Fabric_CA](Splunk_Fabric_CA.jpeg)
     - Transient Store Monitoring: Most multi-org blockchain applications use some sort of private data mechanism in fabric that mechanism is used by transient store inorder to collect and store private data attributes. It would be nice for splunk integration with transient store which resides in the peer database be it leveldb or couchdb. 
-    
+
     - When I used fabric-logger with native hyperledger fabric setup replicating a production network. I would of liked these information on the chaincode commit status when debugging or monitoring, 
         - Check commit status of a chaincode (ie: `peer lifecycle chaincode checkcommitreadiness`)
         - This is useful when orgs are on production scale multi machine env and you want to check which org is rejecting it and why. Especially with 2.x since there is a more decentralized approach to transaction flow. 
@@ -56,8 +56,15 @@
     - Transaction Detail: Quickoverview of how many transactions occured and their status. This can be useful in a dev environment when their are limited transactions and you are pinpointing which type of transactions are failing. 
     - LogMetrics Rate: I chose to have this metric because for cost saving purposes and possible visual representation of network activity. In regards to cost saving, if you are log ingester such as GCP stackdriver or datahog or any external logging service you can see which specific blockchain activity is causing alot of log events and can reduce the logging level. 
 
+
 - Metrics in Dashboard, I would of liked to implement
     - OrdererTLS connections: For secruity reasons would of been nice to see which peers are connected to the orderer along with the fabric clients. 
+    - Transient store monitoring by levaraging couchdb and transient indexes
+
+    **Below is an example of error monitor that is useful with the splunk dashboard and why transient data monitoring is essential**
+
+![Private Asset](transient_error.png))
+
 
 ### Instructions
 
@@ -68,14 +75,16 @@
 
 > ./start.sh
 
-* Step 2: Run the privatemarbles script
+* Step 2: Run the privateassets script
 
 
-*The privatemarbles script will configure, init, approve, invoke, and query the privatemarbles chaincode.*
+*The privateassets script will configure, init, approve, invoke, and query the privateassets chaincode.*
 
-> ./privatemarbles.sh
+> ./privateassets.sh
 
 * Step 3: Open port 8000 on local host or VM ip
+
+* Here is a link to my custom dashboard that is running on a ec2 instance. Could not figure out how to save it locally. 
 
 ```text
 https://localhost:8000
