@@ -54,7 +54,8 @@
     - TXN/Second: This is useful when looking at the latency 
     - Transaction History: Useful when looking at what time has there been a lot of transactions. May be useful when pinpoint heavy transaction errors such as **MVCC errors**
     - Transaction Detail: Quickoverview of how many transactions occured and their status. This can be useful in a dev environment when their are limited transactions and you are pinpointing which type of transactions are failing. 
-    - LogMetrics Rate: I chose to have this metric because for cost saving purposes and possible visual representation of network activity. In regards to cost saving, if you are log ingester such as GCP stackdriver or datahog or any external logging service you can see which specific blockchain activity is causing alot of log events and can reduce the logging level. 
+    - Blockchain Logging Activity: I chose to have this metric because for cost saving purposes and possible visual representation of network activity. In regards to cost saving, if you are log ingester such as GCP stackdriver or datahog or any external logging service you can see which specific blockchain activity is causing alot of log events and can reduce the logging level. 
+    - Unique Transactions/Config Metrics: These are very important metric for any blockchain network but especially for one that is using private data transactions because if something non-determinstic occurs such as another org joins you can pin point this occurence and pinpoint when it occurs. An example is that the fouding consortiumn member which has privelege access to add/remove org gets it's certs compromised by having these metrics we can pinpoint the time and how many config changes happened. 
 
 
 - Metrics in Dashboard, I would of liked to implement
@@ -84,7 +85,9 @@
 
 * Step 3: Open port 8000 on local host or VM ip
 
-* Here is a link to my custom dashboard that is running on a ec2 instance. Could not figure out how to save it locally. 
+* Here is a link to my custom dashboard that is running on a ec2 instance. Could not figure out how to save it locally. So here is the [link](http://3.143.211.24:8000/en-US/app/launcher/home#)
+
+* I have also included a [pdf](Private_Data_Transaction_Dashboard.pdf) I have exported from splunk.
 
 ```text
 https://localhost:8000
