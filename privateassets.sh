@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # copies chaincode configuration to vars folder and chaincode sourcecode
-sudo cp privateassets_collection_config2.json vars
+sudo cp privateassets_collection_config.json vars
 sudo cp -r privateassets vars/chaincode
 
 # installs chaincode
